@@ -1,0 +1,12 @@
+{
+  "firstName":  "Kumar",
+  "lastName":  "Test",
+  "companyName": "My Test Company",
+  "country": "India",
+  "addressLineOne": "1st Street",
+  "city": "Pune",
+  "state": "Maharashtra",
+  "postCode": "411001",
+  "phone": "9876543210",
+  "email": "kumar123@gmail.com"
+}
