@@ -1,5 +1,6 @@
 package org.selenium.pom.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -23,6 +24,7 @@ public class CartPage extends BasePage {
     public Boolean isLoaded() {
         return wait.until(ExpectedConditions.textToBe(cartHeader,"Cart"));
     }
+    @Step
     public String getProductName() {
         return  wait.until(ExpectedConditions.visibilityOfElementLocated(productName)).getText();//driver FE option
 //        productName.getText(); //using pageFactory

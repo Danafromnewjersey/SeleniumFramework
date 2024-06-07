@@ -1,5 +1,6 @@
 package org.selenium.pom.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.selenium.pom.base.BasePage;
@@ -34,6 +35,7 @@ public class CheckoutPage extends BasePage {
     public CheckoutPage(WebDriver driver) {
         super(driver);
     }
+    @Step
     public CheckoutPage load(){
         load("/checkout");
         return this;
@@ -110,10 +112,12 @@ public class CheckoutPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(billingEmailFld)).clear();
         return  this;
     }
+    @Step
     public CheckoutPage enterEmail (String email) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(billingEmailFld)).sendKeys(email);
         return  this;
     }
+    @Step
     public CheckoutPage setBillingAddress (BillingAddress billingAddress){
         return enterFirstName(billingAddress.getFirstName()).
                 enterLastName(billingAddress.getLastName()).
@@ -137,18 +141,22 @@ public class CheckoutPage extends BasePage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(successText)).getText();
     }
     //login
+    @Step
     public CheckoutPage clickHereToLogin () {
         wait.until(ExpectedConditions.visibilityOfElementLocated(clickHereToLogin)).click();
         return this;
     }
+    @Step
     public CheckoutPage enterUserName (String userName) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(userNameField)).sendKeys(userName);
         return this;
     }
+    @Step
     public CheckoutPage enterUserPassword (String userPassword) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(userPasswordField)).sendKeys(userPassword);
         return this;
     }
+    @Step
     public CheckoutPage clickLoginBtn () {
         wait.until(ExpectedConditions.visibilityOfElementLocated(clickHereToLogin)).click();
         return this;
@@ -157,12 +165,14 @@ public class CheckoutPage extends BasePage {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(loginBtn));
         return this;
     }
+    @Step
     public CheckoutPage login(User user) {
         return enterUserName(user.getUsername()).
                 enterUserPassword(user.getPassword()).
                 clickLoginBtn().
                 waitForLoginBtnToDisappear();
     }
+    @Step
     public CheckoutPage selectDirectBankTransfer() {
         WebElement e = wait.until(ExpectedConditions.elementToBeClickable(directBankTransferRadioBtn));
         if (!e.isSelected()){

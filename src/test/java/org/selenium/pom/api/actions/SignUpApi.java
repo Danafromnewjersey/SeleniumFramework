@@ -1,6 +1,7 @@
 package org.selenium.pom.api.actions;
 
 import com.github.dockerjava.api.model.Endpoint;
+import io.qameta.allure.Step;
 import io.restassured.http.Cookies;
 import io.restassured.http.Header;
 import io.restassured.http.Headers;

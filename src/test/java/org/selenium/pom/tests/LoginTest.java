@@ -1,5 +1,6 @@
 package org.selenium.pom.tests;
 
+import io.qameta.allure.*;
 import org.selenium.pom.api.actions.CartApi;
 import org.selenium.pom.api.actions.SignUpApi;
 import org.selenium.pom.base.BaseTest;
@@ -10,13 +11,17 @@ import org.selenium.pom.utils.FakerUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
+@Epic("Frontend")
+@Feature("Login Page")
 
 public class LoginTest extends BaseTest {
-
-    @Test
+    @Story("Login Page")
+    @Link(name = "Website", url = "https://askomdch.com/")
+    @Issue("JiraIssue-111")
+    @TmsLink("TestSuite-123")
+    @Description("this is a description for Login Page")
+    @Test (description = "should be able to log in to account")
     public void loginDuringCheckout() throws Exception {
-
         String username = "testdana" + new FakerUtils().generateRandomName();
         User user = new User().
                 setUsername(username).
